@@ -30,6 +30,7 @@ C:\Users\snadella>aws sts get-caller-identity
 ![AWS Budget](assets/AWS_Budget.png)
 
 ### Lucid Conceptual Diagram
-
+![Conceptual Diagram](assets/Cruddr_Conceptual_Diagram.png)
 
 ### Lucid Logical Diagram
+![Logical Diagram](assets/"Cruddr_Logical_Diagram.png)
