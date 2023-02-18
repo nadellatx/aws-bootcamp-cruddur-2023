@@ -33,4 +33,4 @@ C:\Users\snadella>aws sts get-caller-identity
 ![Conceptual Diagram](assets/Cruddr_Conceptual_Diagram.png)
 
 ### Lucid Logical Diagram
-![Logical Diagram](assets/"Cruddr_Logical_Diagram.png)
+![Logical Diagram](assets/Cruddur_Logical_Diagram.png)
