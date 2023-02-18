@@ -22,3 +22,9 @@ C:\Users\snadella>aws sts get-caller-identity
 ```
 
 ### Create a Billing alarm
+
+![AWS Billing Alarm](assets/AWS_BillingAlarm.png)
+
+### Create a Budget
+
+![AWS Budget](assets/AWS_Budget.png)
