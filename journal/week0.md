@@ -5,6 +5,8 @@
 
 I attempted running the aws commands after configuring my credentials
 
+![AWS CLI Command Invoked](assets/AWS_CLI.png)
+
 ```
 C:\Users\snadella>aws --version
 aws-cli/2.10.0 Python/3.9.11 Windows/8.1 exe/AMD64 prompt/off
@@ -18,3 +20,5 @@ C:\Users\snadella>aws sts get-caller-identity
 }
 
 ```
+
+### Create a Billing alarm
