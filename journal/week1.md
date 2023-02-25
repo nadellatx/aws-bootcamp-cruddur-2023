@@ -5,3 +5,7 @@
 
 ### 2. Built docker images
 ![Docker image list on gitpod.io](assets/DockerImagelist.png)
+
+### 3. Docker compose yml
+![Docker compose yml file](assets/DockerCompose.yml.png)
+
