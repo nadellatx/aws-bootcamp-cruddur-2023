@@ -15,3 +15,6 @@
 ### 5. Individual container
 ![Backend Flask Container Run](assets/BackendAppContainerRun.png)
 
+### 5. Orchestrated container run
+![Cocker Compose up Run](assets/DockerComposeOrchestratedContainers.png)
+
