@@ -9,3 +9,5 @@
 ### 3. Docker compose yml
 ![Docker compose yml file](assets/DockerCompose.yml.png)
 
+### 4. App run locally
+![Backend Flask App Run](assets/BackendFlaskAppRun.png)
