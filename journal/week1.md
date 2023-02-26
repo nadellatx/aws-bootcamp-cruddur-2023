@@ -11,3 +11,7 @@
 
 ### 4. App run locally
 ![Backend Flask App Run](assets/BackendFlaskAppRun.png)
+
+### 5. Individual container
+![Backend Flask Container Run](assets/BackendAppContainerRun.png)
+
