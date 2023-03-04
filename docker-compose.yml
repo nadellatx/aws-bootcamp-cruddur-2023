@@ -8,6 +8,8 @@ services:
       OTEL_EXPORTER_OTLP_ENDPOINT: "https://api.honeycomb.io"
       OTEL_EXPORTER_OTLP_HEADERS: "x-honeycomb-team=${HONEYCOMB_API_KEY}"
       ROLLBAR_ACCESS_TOKEN: "f87c3a23f7b2453788458bace319d199"
+      AWS_XRAY_URL: "*4567-${GITPOD_WORKSPACE_ID}.${GITPOD_WORKSPACE_CLUSTER_HOST}*"
+      AWS_XRAY_DAEMON_ADDRESS: "xray-daemon:2000"
     build: ./backend-flask
     ports:
       - "4567:4567"
@@ -21,29 +23,41 @@ services:
       - "3000:3000"
     volumes:
       - ./frontend-react-js:/frontend-react-js
-  dynamodb-local:
-    # https://stackoverflow.com/questions/67533058/persist-local-dynamodb-data-in-volumes-lack-permission-unable-to-open-databa
-    # We needed to add user:root to get this working.
-    user: root
-    command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
-    image: "amazon/dynamodb-local:latest"
-    container_name: dynamodb-local
-    ports:
-      - "8000:8000"
-    volumes:
-      - "./docker/dynamodb:/home/dynamodblocal/data"
-    working_dir: /home/dynamodblocal
 
-  db:
-    image: postgres:13-alpine
-    restart: always
+  xray-daemon:
+    image: "amazon/aws-xray-daemon"
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=password
+      AWS_ACCESS_KEY_ID: "${AWS_ACCESS_KEY_ID}"
+      AWS_SECRET_ACCESS_KEY: "${AWS_SECRET_ACCESS_KEY}"
+      AWS_REGION: "us-east-1"
+    command:
+      - "xray -o -b xray-daemon:2000"
     ports:
-      - '5432:5432'
-    volumes: 
-      - db:/var/lib/postgresql/data
+      - 2000:2000/udp
+  
+  # dynamodb-local:
+  #   # https://stackoverflow.com/questions/67533058/persist-local-dynamodb-data-in-volumes-lack-permission-unable-to-open-databa
+  #   # We needed to add user:root to get this working.
+  #   user: root
+  #   command: "-jar DynamoDBLocal.jar -sharedDb -dbPath ./data"
+  #   image: "amazon/dynamodb-local:latest"
+  #   container_name: dynamodb-local
+  #   ports:
+  #     - "8000:8000"
+  #   volumes:
+  #     - "./docker/dynamodb:/home/dynamodblocal/data"
+  #   working_dir: /home/dynamodblocal
+
+  # db:
+  #   image: postgres:13-alpine
+  #   restart: always
+  #   environment:
+  #     - POSTGRES_USER=postgres
+  #     - POSTGRES_PASSWORD=password
+  #   ports:
+  #     - '5432:5432'
+  #   volumes: 
+  #     - db:/var/lib/postgresql/data
 
 # the name flag is a hack to change the default prepend folder
 # name when outputting the image names
@@ -52,6 +66,6 @@ networks:
     driver: bridge
     name: cruddur
 
-volumes:
-  db:
-    driver: local
+# volumes:
+#   db:
+#     driver: local
