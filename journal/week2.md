@@ -21,8 +21,11 @@
 ### 6. AWS Xray Traces
 ![AWS XRay Traces](assets/xrayInstrumentation.png)
 
+### 7. AWS Xray Subsegments
+![AWS XRay Subsegments](assets/xRay subsegment.png)
 
-#### Add AWS Xray subsegments and Cloudwatch logger pngs from other PC
+### 8. Cloudwatch logs
+![AWS XRay Traces](assets/Cloudwatch logs.png)
 
-### 10. Rollbar Item Trace
+### 9. Rollbar Item Trace
 ![Rollbar Trace](assets/RollbarItem.png)
