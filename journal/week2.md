@@ -25,7 +25,7 @@
 ![AWS XRay Subsegments](assets/xRay subsegment.png)
 
 ### 8. Cloudwatch logs
-![AWS XRay Traces](assets/Cloudwatch logs.png)
+![Cloudwatch logs](assets/Cloudwatch logs.png)
 
 ### 9. Rollbar Item Trace
 ![Rollbar Trace](assets/RollbarItem.png)
